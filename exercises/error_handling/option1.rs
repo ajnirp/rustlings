@@ -10,7 +10,10 @@ fn main() {
     let last = list.pop().unwrap();
     println!("The last item in the list is {:?}", last);
 
-    let second_to_last = list.pop().unwrap();
+    let second_to_last = list.pop().unwrap_or_else(|| {
+    	println!("Hit end of list. Returning dummy value...");
+    	42
+    });
     println!(
         "The second-to-last item in the list is {:?}",
         second_to_last
